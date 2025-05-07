@@ -1,0 +1,253 @@
+.contact {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.contact-info {
+  padding-right: 2rem;
+}
+
+.contact-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-color);
+}
+
+.contact-info p {
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.contact-details {
+  margin-bottom: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.contact-icon {
+  color: var(--accent-color);
+  margin-right: 1rem;
+}
+
+.contact-social {
+  margin-top: 2rem;
+}
+
+.contact-form-container {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contact-form {
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  border: 1px solid var(--border-color);
+}
+
+.contact-form:hover {
+  box-shadow: 0 0 0 2px var(--accent-color);
+  animation: neonBorder 1.5s infinite alternate;
+}
+
+@keyframes neonBorder {
+  from {
+    box-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color);
+  }
+  to {
+    box-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  font-family: 'JetBrains Mono', monospace;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.error-alert {
+  background-color: rgba(220, 53, 69, 0.1);
+  border: 1px solid #dc3545;
+  color: #dc3545;
+  padding: 0.75rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(46, 160, 67, 0.3);
+}
+
+.submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'JetBrains Mono', monospace;
+  gap: 10px;
+  width: 100%;
+}
+
+.submit-button:hover {
+  background-color: var(--accent-color-hover);
+  transform: translateY(-3px);
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.encryption-animation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.encryption-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(13, 17, 23, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.encryption-text {
+  font-family: monospace;
+  color: var(--accent-color);
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.encryption-line {
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+
+.encryption-char {
+  display: inline-block;
+  animation: encryptChar 0.1s forwards;
+  opacity: 0;
+}
+
+@keyframes encryptChar {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 992px) {
+  .contact-content {
+    gap: 3rem;
+  }
+
+  .contact-info {
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-info {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .contact-item {
+    justify-content: center;
+  }
+
+  .contact-social {
+    justify-content: center;
+  }
+}

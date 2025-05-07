@@ -1,0 +1,276 @@
+.header {
+  height: 100vh;
+  position: relative;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.2rem 0;
+  z-index: 100;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 0.8rem 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  cursor: pointer;
+  text-shadow: var(--glow-effect);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links li {
+  position: relative;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+  box-shadow: var(--glow-effect);
+}
+
+.nav-links li:hover {
+  color: var(--accent-color);
+}
+
+.nav-links li:hover::after {
+  width: 100%;
+}
+
+.mobile-menu-button {
+  display: none;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  z-index: 99;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-nav-links {
+  list-style: none;
+  padding: 0 1.5rem;
+}
+
+.mobile-nav-links li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.mobile-nav-links li:last-child {
+  border-bottom: none;
+}
+
+.mobile-nav-links li:hover {
+  color: var(--accent-color);
+}
+
+/* Hero section */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: rgba(13, 17, 23, 0.6);
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--border-color);
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-image-container {
+  margin-bottom: 1.5rem;
+}
+
+.profile-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 3px solid var(--accent-color);
+  box-shadow: 0 0 15px var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color);
+}
+
+.profile-placeholder {
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.name {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  height: 30px;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(46, 160, 67, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .name {
+    font-size: 2.5rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .hero-content {
+    padding: 1.5rem;
+  }
+
+  .profile-image {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .name {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-placeholder {
+    font-size: 3.5rem;
+  }
+}
